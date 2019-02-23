@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Adroid People Test</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular-route.min.js"></script>
+  <script src="app.js"></script>
+  <style>
+    /* Remove the navbar's default rounded borders and increase the bottom margin */ 
+    .navbar {
+      margin-bottom: 10px;
+      border-radius: 0;
+    }
+    
+    /* Remove the jumbotron's default bottom margin */ 
+     .jumbotron {
+      margin-bottom: 0;
+    }
+   
+    /* Add a gray background color and some padding to the footer */
+    footer {
+      background-color: #f2f2f2;
+      padding: 25px;
+    }
+  </style>
+</head>
+<body ng-app="myApp">
+
+ <script type="text/ng-template" id="home.html">
+     <div class="panel panel-primary">
+        <div class="panel-heading" align='center';>{{header}}</div>
+        <div class="panel-body">	
+		<table class="table table-hover" id="dev-table">
+						<thead>
+							<tr>
+								<th>#</th>
+								<th>Name</th>
+								<th>Email</th>
+								<th>Phone</th>
+								<th>Website</th>
+								<th>Address</th>
+								<th>Company</th>
+								
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat= "x in content">
+								<td>{{x.id}}</td>
+								<td>{{x.name}}</td>
+								<td>{{x.email}}</td>
+								<td>{{x.phone}}</td>
+								<td>{{x.website}}</td>
+								<td>{{x.address.street}} {{x.address.suite}} {{x.address.city}} {{x.address.zipcode}}</td>
+								<td>{{x.company.name}} {{x.company.ncatchPhraseame}} {{x.company.bs}}</td>
+							</tr>
+						</tbody>
+					</table>
+		</div>
+        <div class="panel-footer">footer</div>
+      </div>
+    </script>
+    <script type="text/ng-template" id="posts.html">
+     <div class="panel panel-primary">
+        <div class="panel-heading" align='center';>{{header}}</div>
+        <div class="panel-body">
+		<table class="table table-hover" id="dev-table">
+						<thead>
+							<tr>
+								<th>User Id</th>
+								<th>Id</th>
+								<th>Title</th>
+								<th>Body</th>
+								
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat= "x in content">
+								<td>{{x.userId}}</td>
+								<td>{{x.id}}</td>
+								<td>{{x.title}}</td>
+								<td>{{x.body}}</td>
+							</tr>
+						</tbody>
+					</table>
+		</div>
+        <div class="panel-footer">footer</div>
+      </div>
+    </script>
+    <script type="text/ng-template" id="comments.html">
+     <div class="panel panel-primary">
+        <div class="panel-heading" align='center';>{{header}}</div>
+        <div class="panel-body">
+		<table class="table table-hover" id="dev-table">
+						<thead>
+							<tr>
+								<th>Post Id</th>
+								<th>Id</th>
+								<th>Name</th>
+								<th>Email</th>
+								<th>Body</th>
+								
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat= "x in content">
+								<td>{{x.postId}}</td>
+								<td>{{x.id}}</td>
+								<td>{{x.name}}</td>
+								<td>{{x.email}}</td>
+								<td>{{x.body}}</td>
+							</tr>
+						</tbody>
+					</table>
+		</div>
+        <div class="panel-footer">footer</div>
+      </div>
+    </script>
+
+
+<div class="jumbotron">
+    <a class="navbar-brand" href="#">
+    <img src="https://mdbootstrap.com/img/logo/mdb-transparent.png" height="60" alt="mdb logo">
+  </a>
+  <div style="padding-left: 400px;"> <h1>Adroid Online Test</h1></div>
+ 
+</div>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+     </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li><a href="#/">Home</a></li>
+        <li><a href="#posts">Posts</a></li>
+        <li><a href="#comments">Comments</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-user"></span>Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container">    
+  <div class="row">
+    <div class="col-sm-12">
+     <div ng-view></div>
+    </div>
+ </div>
+</div><br>
+
+<br>
+<br><br>
+
+</body>
+</html>
